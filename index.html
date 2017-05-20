@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Video in Cross Browsers</title>
+    <link rel="stylesheet" type="text/css" href="VideoRecorder-demo-pages.css">
+    <link rel="stylesheet" type="text/css" href="HDFVR-mobile.css">
+</head>
+
+<body>
+    <div id="flashCamSection">
+        <div id="flashCamContainer" class="wrapper"></div>
+        <table width="100%" style="margin-top: 6px;">
+        <tr>
+            <td align="center">
+                <input type="button" onclick="javascript:document.VideoRecorder.record()" disabled name="Record" value="Record" id="recordbtn" />
+                <input type="button" onclick="javascript:document.VideoRecorder.pauseRecording();" value="Pause Record" disabled id="pauseRecordingBtn" />
+                <input type="button" onclick="javascript:document.VideoRecorder.resumeRecording();" value="Resume" disabled id="resumeRecordingBtn" />
+                <input type="button" onclick="javascript:document.VideoRecorder.stopVideo()" value="Stop" id="stopBtn" disabled />
+  <!--               <input type="button" onclick="javascript:document.VideoRecorder.playVideo()" value="Play" id="playBtn" disabled />
+                <input type="button" onclick="javascript:document.VideoRecorder.pause()" value="Pause" id="pauseBtn" disabled /> -->
+                <input type="button" onclick="javascript:document.VideoRecorder.save()" value="Save" id="saveBtn" disabled />
+            </td>
+        </tr>
+        </table>
+    </div>
+    <div id="webrtcSection">
+        <div style="text-align: center">
+            <div id="webrtcCamContainer" style="position: relative; display: inline-block;">
+                <p style="position: absolute;color: white;top: 36%;left: 36%; z-index: 9" id="processing">Processing...</p>
+                <video controls width="320" height="240" style="background: black; border-radius: 4px"></video> 
+            </div>  
+        </div>
+        <div style="padding: 5px; text-align: center">
+            <button id="start-recording">Record</button>
+            <button id="pause-recording" disabled>Pause</button>
+            <button id="resume-recording" disabled>Resume</button>
+            <button id="stop-recording" disabled>Stop</button>
+            <button id="save-recording" disabled>Save</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="js/recordWebcamMain.js"></script>
+    <script type="text/javascript" src="https://cdn.WebRTC-Experiment.com/gumadapter.js"></script>
+    <script type="text/javascript" src="js/MediaStreamRecorder.js"></script>
+    <script type="text/javascript" src="js/flashCamMain.js"></script>
+    <script type="text/javascript" src="js/webrtcCamMain.js"></script>
+
+</body>
+
+</html>
