@@ -286,8 +286,22 @@ var flashvars = {
     }
 
     function onUploadDone(streamName, streamDuration, userId, recorderId, audioCodec, videoCodec, fileType) {
+        
+        document.getElementById("recordbtn").disabled = false;
+        document.getElementById("stopBtn").disabled = true;
+        document.getElementById("pauseRecordingBtn").disabled = true;
+        document.getElementById("saveBtn").disabled = false;
+        console.log('jkj!!!kjkjkjkjk');
         var args = Array.prototype.slice.call(arguments);
         console.log("onUploadDone(" + args.join(",") + ")");
+        
+        
+        document.getElementById("playBtn").disabled = false;
+
+        //this function is called whenever a recording is stopped
+        //recorderId: the recorderId sent via flash vars, to be used when there are many recorders on the same web page
+        document.getElementById("resumeRecordingBtn").disabled = true;
+        
 
         //this function is called when the video/audio stream has been all sent to the media server and has been saved to the video server HHD, 
         //on slow client->server connections, because the data can not reach the media server in real time, it is stored in the recorder's buffer until it is sent to the server, you can configure the buffer size in avc_settings.XXX
@@ -318,6 +332,7 @@ var flashvars = {
     function onSaveOk(streamName, streamDuration, userId, cameraName, micName, recorderId, audioCodec, videoCodec, fileType, videoId) {
         var args = Array.prototype.slice.call(arguments);
         document.getElementById("saveBtn").disabled = true;
+        alert('Successfully saved to the server!');
         console.log("onSaveOk(" + args.join(",") + ")");
 
         //the user pressed the [save] button inside the recorder and the save_video_to_db.XXX script returned save=ok

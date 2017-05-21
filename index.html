@@ -15,8 +15,8 @@
         <tr>
             <td align="center">
                 <input type="button" onclick="javascript:document.VideoRecorder.record()" disabled name="Record" value="Record" id="recordbtn" />
-                <input type="button" onclick="javascript:document.VideoRecorder.pauseRecording();" value="Pause Record" disabled id="pauseRecordingBtn" />
-                <input type="button" onclick="javascript:document.VideoRecorder.resumeRecording();" value="Resume" disabled id="resumeRecordingBtn" />
+                <input type="button" onclick="javascript:document.VideoRecorder.pauseRecording()" value="Pause Record" disabled id="pauseRecordingBtn" />
+                <input type="button" onclick="javascript:document.VideoRecorder.resumeRecording()" value="Resume" disabled id="resumeRecordingBtn" />
                 <input type="button" onclick="javascript:document.VideoRecorder.stopVideo()" value="Stop" id="stopBtn" disabled />
   <!--               <input type="button" onclick="javascript:document.VideoRecorder.playVideo()" value="Play" id="playBtn" disabled />
                 <input type="button" onclick="javascript:document.VideoRecorder.pause()" value="Pause" id="pauseBtn" disabled /> -->
@@ -28,7 +28,8 @@
     <div id="webrtcSection">
         <div style="text-align: center">
             <div id="webrtcCamContainer" style="position: relative; display: inline-block;">
-                <p style="position: absolute;color: white;top: 36%;left: 36%; z-index: 9" id="processing">Processing...</p>
+                <p style="position: absolute;color: white;top: 36%;left: 36%; z-index: 9" id="webrtc_processing">Processing...</p>
+               
                 <video controls width="320" height="240" style="background: black; border-radius: 4px"></video> 
             </div>  
         </div>

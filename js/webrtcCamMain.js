@@ -7,7 +7,7 @@
             };
             
             $( document ).ready(function() {
-                $('#processing').hide();
+                $('#webrtc_processing').hide();
             });
             document.querySelector('#start-recording').onclick = function() {
                 this.disabled = true;
@@ -18,7 +18,7 @@
             document.querySelector('#stop-recording').onclick = function() {
                 this.disabled = true;
                 document.querySelector('#resume-recording').disabled = true;
-                 $('#processing').show();
+                 $('#webrtc_processing').show();
                  console.log('mediaRecorder=> ', mediaRecorder);
                 mediaRecorder.stop(function(blob) {
                     console.log('blob here=> ', blob);
@@ -28,7 +28,7 @@
                     console.log('URL==> ', URL.createObjectURL(blob));
                     $('#webrtcCamContainer video').attr('src', URL.createObjectURL(blob));
                     console.log('finished');
-                     $('#processing').hide();
+                     $('#webrtc_processing').hide();
                     
                 });
                 mediaRecorder.stream.stop();
@@ -47,8 +47,9 @@
             };
             document.querySelector('#save-recording').onclick = function() {
                 this.disabled = true;
-
-                mediaRecorder.save();
+                mediaRecorder.save(function() {
+                    alert('Successfully saved to the server!');
+                });
                
             };
             var mediaRecorder;

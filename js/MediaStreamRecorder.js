@@ -103,8 +103,8 @@ function MediaStreamRecorder(mediaStream) {
         console.warn('stopped..', error);
     };
 
-    this.save = function(file, fileName) {
-
+    this.save = function(callback) {
+        var file = null;
         if (!file) {
             if (!mediaRecorder) {
                 return;
@@ -114,7 +114,7 @@ function MediaStreamRecorder(mediaStream) {
 
                 // invokeSaveAsDialog(concatenatedBlob);
                 
-                uploadToServerRecordedFile(concatenatedBlob);
+                uploadToServerRecordedFile(concatenatedBlob, callback);
             });
             return;
         }
@@ -645,7 +645,7 @@ function xhr(url, data, callback) {
     request.open('POST', url);
     request.send(data);
 }
-function uploadToServerRecordedFile(file, fileName) {
+function uploadToServerRecordedFile(file, callback) {
 
     var fileType = 'video'; // or "audio"
     if (!file) {
@@ -663,7 +663,7 @@ function uploadToServerRecordedFile(file, fileName) {
     formData.append(fileType + '-filename', fileFullName);
     formData.append(fileType + '-blob', file);
     xhr('save.php', formData, function (fName) {
-        window.open(location.href + fName);
+        callback();
     });
 
 }
