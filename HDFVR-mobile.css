@@ -23,7 +23,7 @@
   white-space: nowrap;
   -webkit-user-select: none;
   /* fill in the area */
-  width:100%;
+  width:90%;
 }
 /*
 #hdfvr-file-input:active::before {

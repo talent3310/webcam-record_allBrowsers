@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+	
     var mobile = false;
     var ua = navigator.userAgent.toLowerCase();
     if (ua.indexOf("ipad") != -1 || ua.indexOf("iphone") != -1 || ua.indexOf("android") != -1 || ua.indexOf("ipod") != -1 || ua.indexOf("windows ce") != -1 || ua.indexOf("windows phone") != -1) {
@@ -27,6 +28,8 @@ var isChrome = !!window.chrome && !!window.chrome.webstore;
 var isBlink = (isChrome || isOpera) && !!window.CSS;
 
 //console.log('browserType=> ',isOpera, '-',isFirefox, '-',isSafari, '-',isIE, '-',isEdge, '-',isChrome, '-',isBlink);
+$('#webrtcSection').hide();
+$('#flashCamSection').hide();
 if(!mobile) {
 	if(isSafari || isIE) {
 		$('#webrtcSection').hide();
@@ -36,6 +39,10 @@ if(!mobile) {
 		$('#webrtcSection').show();
 		$('#flashCamSection').hide();
 	}
+} else {
+	$('#flashCamSection').show();
+	$('#webrtcSection').hide();
+	$('.flashCamDesktop').hide();
 }
 
 });

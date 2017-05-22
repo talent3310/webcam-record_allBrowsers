@@ -1,87 +1,86 @@
-
 $(document).ready(function() { 
-	var options = {   
-			beforeSubmit:  beforeSubmit,  
-			success:       afterSuccess,  
-			uploadProgress: OnProgress, 
-			resetForm: true        
-		}; 
-		
-	$('#hdfvr-recording-form').submit(function() { 
-			$(this).ajaxSubmit(options);
-			return false; 
-	});
+    var options = {   
+            beforeSubmit:  beforeSubmit,  
+            success:       afterSuccess,  
+            uploadProgress: OnProgress, 
+            resetForm: true        
+        }; 
+        
+    $('#hdfvr-recording-form').submit(function() { 
+            $(this).ajaxSubmit(options);
+            return false; 
+    });
 
-	function beforeSubmit(){
-		console.log("beforeSubmit()");
-	   if (window.File && window.FileReader && window.FileList && window.Blob)
-		{
-			$('#output').css('color','#000');	
-			$("#output").html("");
-			if( !$('#hdfvr-file-input').val()) 
-			{
-				$("#output").html("Please select or record a video before uploading.");
-				return false
-			}
-		
-			$('#hdfvr-submit-btn').prop('value','Uploading...0%');
+    function beforeSubmit(){
+        console.log("beforeSubmit()");
+       if (window.File && window.FileReader && window.FileList && window.Blob)
+        {
+            $('#output').css('color','#000');   
+            $("#output").html("");
+            if( !$('#hdfvr-file-input').val()) 
+            {
+                $("#output").html("Please select or record a video before uploading.");
+                return false
+            }
+        
+            $('#hdfvr-submit-btn').prop('value','Uploading...0%');
 
-			var ftype = $('#hdfvr-file-input')[0].files[0].type; 
-		
-			switch(ftype)
-			{
-				case 'video/mp4':
-				case 'video/quicktime':
-				case 'video/3gpp':
-				case 'video/3gpp2':
-					break;
-				default:
-					$("#output").html("<b>"+ftype+"</b> Unsupported file type!");
-					return false
-			}
-				
-			$('#submit-btn').hide(); 
-			$('#hdfvr-loading-img').show();
-			$("#output").html("");  
-		}
-		else
-		{
-			$("#output").html("Please upgrade your browser! Your current one lacks the features needed to record & submit videos.");
-			return false;
-		}
-	}
+            var ftype = $('#hdfvr-file-input')[0].files[0].type; 
+        
+            switch(ftype)
+            {
+                case 'video/mp4':
+                case 'video/quicktime':
+                case 'video/3gpp':
+                case 'video/3gpp2':
+                    break;
+                default:
+                    $("#output").html("<b>"+ftype+"</b> Unsupported file type!");
+                    return false
+            }
+                
+            $('#submit-btn').hide(); 
+            $('#hdfvr-loading-img').show();
+            $("#output").html("");  
+        }
+        else
+        {
+            $("#output").html("Please upgrade your browser! Your current one lacks the features needed to record & submit videos.");
+            return false;
+        }
+    }
 
 
-	function OnProgress(event, position, total, percentComplete)
-	{
-		$('#hdfvr-submit-btn').prop('value','Uploading...'+percentComplete + '%');
-	}
-	
-	function afterSuccess(data)
-	{
-		$('#hdfvr-loading-img').hide(); 
-		//var res = data.split("#");
-		//var fileName = res[0];
-		var res = JSON.parse(data);
-		if (res.s==1){
-			$("#output").html("Done!");
-			$('#output').css('color','#090');	
-			$('#hdfvr-submit-btn').prop('value','2. Upload');
-			var fileName = res.f;
-			console.log("filename="+fileName);
-		}else if (res.s==0){
-				$("#output").html("Upload failed!");
-				$('#output').css('color','#f00');		
-		}
-	}
+    function OnProgress(event, position, total, percentComplete)
+    {
+        $('#hdfvr-submit-btn').prop('value','Uploading...'+percentComplete + '%');
+    }
+    
+    function afterSuccess(data)
+    {
+        $('#hdfvr-loading-img').hide(); 
+        //var res = data.split("#");
+        //var fileName = res[0];
+        var res = JSON.parse(data);
+        if (res.s==1){
+            $("#output").html("Done!");
+            $('#output').css('color','#090');   
+            $('#hdfvr-submit-btn').prop('value','2. Upload');
+            var fileName = res.f;
+            console.log("filename="+fileName);
+        }else if (res.s==0){
+                $("#output").html("Upload failed!");
+                $('#output').css('color','#f00');       
+        }
+    }
 }); 
 
 
 window.onbeforeunload = function(){
-	if (navigator.appName == 'Microsoft Internet Explorer'){
-		var swf = document.getElementById('VideoRecorder');
-		swf.disconnectAndRemove();
-	}
+    if (navigator.appName == 'Microsoft Internet Explorer'){
+        var swf = document.getElementById('VideoRecorder');
+        swf.disconnectAndRemove();
+    }
 }
 
 
@@ -254,7 +253,7 @@ var flashvars = {
         document.getElementById("resumeRecordingBtn").disabled = false;
         document.getElementById("pauseRecordingBtn").disabled = true;
         document.getElementById("recordbtn").disabled = true;
-        document.getElementById("stopBtn").disabled = false;
+        document.getElementById("stopBtn").disabled = true;
         document.getElementById("playBtn").disabled = true;
         document.getElementById("pauseBtn").disabled = true;
         document.getElementById("saveBtn").disabled = true;

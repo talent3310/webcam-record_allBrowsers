@@ -8,6 +8,7 @@
             
             $( document ).ready(function() {
                 $('#webrtc_processing').hide();
+                $('#webrtc_save').hide();
             });
             document.querySelector('#start-recording').onclick = function() {
                 this.disabled = true;
@@ -47,8 +48,12 @@
             };
             document.querySelector('#save-recording').onclick = function() {
                 this.disabled = true;
+                $('#webrtc_save').show();
+                document.querySelector('#start-recording').disabled = true;
                 mediaRecorder.save(function() {
+                    $('#webrtc_save').hide();
                     alert('Successfully saved to the server!');
+                    document.querySelector('#start-recording').disabled = false;
                 });
                
             };

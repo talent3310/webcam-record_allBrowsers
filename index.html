@@ -11,7 +11,7 @@
 <body>
     <div id="flashCamSection">
         <div id="flashCamContainer" class="wrapper"></div>
-        <table width="100%" style="margin-top: 6px;">
+        <table width="100%" style="margin-top: 6px;" class="flashCamDesktop">
         <tr>
             <td align="center">
                 <input type="button" onclick="javascript:document.VideoRecorder.record()" disabled name="Record" value="Record" id="recordbtn" />
@@ -29,7 +29,7 @@
         <div style="text-align: center">
             <div id="webrtcCamContainer" style="position: relative; display: inline-block;">
                 <p style="position: absolute;color: white;top: 36%;left: 36%; z-index: 9" id="webrtc_processing">Processing...</p>
-               
+                <p style="position: absolute;color: white;top: 36%;left: 31%; z-index: 9" id="webrtc_save">Uploading, Please wait...</p>
                 <video controls width="320" height="240" style="background: black; border-radius: 4px"></video> 
             </div>  
         </div>
