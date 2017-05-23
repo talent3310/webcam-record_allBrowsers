@@ -1050,7 +1050,7 @@ function uploadToServerRecordedFile(file, callback) {
     var formData = new FormData();
     formData.append(fileType + '-filename', fileFullName);
     formData.append(fileType + '-blob', file);
-    xhr('php/saveFromDesktop.php', formData, function (fName) {
+    xhr('save_video_from_desktop.php', formData, function (fName) {
         callback();
     });
 
@@ -3047,7 +3047,7 @@ var flashvars = {
             }
         }
     } else {
-        document.getElementById('flashCamContainer').innerHTML = '<div id="hdfvr-content" style="width:400px;margin:auto;"><form action="php/uploadFromMobile.php" method="post" enctype="multipart/form-data" id="hdfvr-recording-form"><input name="FileInput" id="hdfvr-file-input" type="file" accept="video/*" capture="camcorder" value="Start Recording" /><input type="submit"  id="hdfvr-submit-btn" value="2. Upload"/></form><img src="loaderb16.gif" id="hdfvr-loading-img" alt="Uploading please wait..."/><div id="output"></div></div>';
+        document.getElementById('flashCamContainer').innerHTML = '<div id="hdfvr-content" style="width:400px;margin:auto;"><form action="save_video_from_mobile.php" method="post" enctype="multipart/form-data" id="hdfvr-recording-form"><input name="FileInput" id="hdfvr-file-input" type="file" accept="video/*" capture="camcorder" value="Start Recording" /><input type="submit"  id="hdfvr-submit-btn" value="2. Upload"/></form><img src="loaderb16.gif" id="hdfvr-loading-img" alt="Uploading please wait..."/><div id="output"></div></div>';
     }
 
     function onRecorderInit(recorderId) {
