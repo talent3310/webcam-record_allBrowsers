@@ -28,7 +28,7 @@ function selfInvoker()
         return;
     }
 
-    $filePath = 'uploads/' . $fileName;
+    $filePath = '../uploads/desktop/' . $fileName;
     
     // make sure that one can upload only allowed audio/video files
     $allowed = array(
