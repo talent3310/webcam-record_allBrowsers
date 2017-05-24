@@ -4,13 +4,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Record Video in Cross Browsers</title>
-    <link rel="stylesheet" type="text/css" href="css/webCamRec.css">
+    <link rel="stylesheet" type="text/css" href="VideoRecorder-demo-pages.css">
+    <link rel="stylesheet" type="text/css" href="HDFVR-mobile.css">
 </head>
 
 <body>
     <div id="flashCamSection">
         <div id="flashCamContainer" class="wrapper"></div>
-        <table width="100%" style="margin-top: 6px;" class="flashCamDesktop">
+        <table width="100%" style="margin-top: 6px;">
         <tr>
             <td align="center">
                 <input type="button" onclick="javascript:document.VideoRecorder.record()" disabled name="Record" value="Record" id="recordbtn" />
@@ -28,7 +29,7 @@
         <div style="text-align: center">
             <div id="webrtcCamContainer" style="position: relative; display: inline-block;">
                 <p style="position: absolute;color: white;top: 36%;left: 36%; z-index: 9" id="webrtc_processing">Processing...</p>
-                <p style="position: absolute;color: white;top: 36%;left: 31%; z-index: 9" id="webrtc_save">Uploading, Please wait...</p>
+               
                 <video controls width="320" height="240" style="background: black; border-radius: 4px"></video> 
             </div>  
         </div>
@@ -43,7 +44,10 @@
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="js/jquery.form.min.js"></script>
     <script type="text/javascript" src="js/recordWebcamMain.js"></script>
-
+    <script type="text/javascript" src="https://cdn.WebRTC-Experiment.com/gumadapter.js"></script>
+    <script type="text/javascript" src="js/MediaStreamRecorder.js"></script>
+    <script type="text/javascript" src="js/flashCamMain.js"></script>
+    <script type="text/javascript" src="js/webrtcCamMain.js"></script>
 
 </body>
 

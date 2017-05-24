@@ -22,13 +22,12 @@ function selfInvoker()
         $fileName = $_POST['video-filename'];
         $tempName = $_FILES['video-blob']['tmp_name'];
     }
-    
     if (empty($fileName) || empty($tempName)) {
         echo 'PermissionDeniedError';
         return;
     }
 
-    $filePath = 'uploads/desktop/' . $fileName;
+    $filePath = 'uploads/' . $fileName;
     
     // make sure that one can upload only allowed audio/video files
     $allowed = array(
@@ -49,7 +48,7 @@ function selfInvoker()
         return;
     }
     
-    echo ($filePath);
+    // echo ($filePath);
 }
 
 selfInvoker();

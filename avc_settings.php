@@ -6,8 +6,8 @@
  description: the RTMP connection string to the hdfvr application on your media server
  values: 'rtmp://localhost/hdfvr/_definst_', 'rtmp://myfmsserver.com/hdfvr/_definst_', etc...
 */
-$config['connectionstring']="rtmp://54.250.245.176/hdfvr/_definst_";
-// $config['connectionstring']="rtmp://710c825a.ngrok.io/hdfvr/_definst_";
+$config['connectionstring']="rtmp://localhost/hdfvr/_definst_";
+
 /* 
  The recorderId query variable contains the value of the recorderId variable sent to videorecorder.swf via flash vars.
  To edit it's value look in the VideoRecorder.html file for "&recorderId=123", 123 is it's default value.

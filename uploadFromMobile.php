@@ -2,13 +2,13 @@
 
 header("Access-Control-Allow-Origin:*");
 
-// if(!is_dir("uploads/mobile")){
-// 	$res = mkdir("uploads/mobile",0777); 
-// }
+if(!is_dir("mobileRecordings")){
+	$res = mkdir("mobileRecordings",0777); 
+}
 
 if(isset($_FILES["FileInput"]) && $_FILES["FileInput"]["error"]== UPLOAD_ERR_OK)
 {
-	$UploadDirectory	= 'uploads/mobile/'; 	
+	$UploadDirectory	= 'mobileRecordings/'; 	
 
 	//Note: if memory_limit, upload_max_filesize or post_max_size is set too low (lower than the size of the uploaded video) in php.ini the upload will fail. 
 	
